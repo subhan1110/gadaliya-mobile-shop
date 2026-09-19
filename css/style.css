@@ -390,6 +390,35 @@ button {
   overflow: hidden;
 }
 
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -80px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(245,166,35,0.09) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-section::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  left: -60px;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(59,130,246,0.07) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-section > .container {
+  position: relative;
+  z-index: 1;
+}
+
 .hero-grid {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
@@ -407,11 +436,16 @@ button {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--accent-gold);
   margin-bottom: 16px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
+  background: rgba(245, 166, 35, 0.1);
+  border: 1px solid rgba(245, 166, 35, 0.25);
+  padding: 5px 14px;
+  border-radius: var(--radius-pill);
+  width: fit-content;
 }
 
 .hero-title {
@@ -1106,6 +1140,12 @@ button {
 }
 
 /* Floating WhatsApp Button (Bottom Right) */
+@keyframes whatsapp-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.55); }
+  70%  { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
 .floating-whatsapp-btn {
   position: fixed;
   bottom: 28px;
@@ -1121,12 +1161,14 @@ button {
   box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
   z-index: 999;
   transition: all 0.25s ease;
+  animation: whatsapp-pulse 2.2s infinite;
 }
 
 .floating-whatsapp-btn:hover {
-  transform: scale(1.1);
+  transform: scale(1.12);
   background: var(--whatsapp-hover);
   box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6);
+  animation: none;
 }
 
 .floating-whatsapp-btn svg {
@@ -1357,112 +1399,212 @@ button {
 }
 
 /* ==========================================================================
-   Responsive Media Queries
+   Responsive Media Queries — Comprehensive Mobile-First Overhaul
    ========================================================================== */
+
+/* ── 1024px: Tablet Landscape ── */
 @media (max-width: 1024px) {
+
+  /* Hero */
+  .hero-section { padding: 60px 0 70px; }
   .hero-grid {
     grid-template-columns: 1fr;
+    gap: 48px;
     text-align: left;
   }
+  .hero-visual { display: none; }  /* hide large image on tablet/mobile - keeps layout clean */
+  .hero-content { max-width: 100%; }
+  .hero-subtitle { max-width: 100%; }
 
-  .hero-visual {
-    margin-top: 20px;
-  }
-
+  /* Services */
+  .services-section { padding: 70px 0; }
   .services-grid {
     grid-template-columns: 1fr;
+    gap: 36px;
   }
+  .services-intro { max-width: 100%; }
 
-  .services-intro {
-    max-width: 100%;
-  }
-
+  /* Why */
+  .why-section { padding: 70px 0; }
   .why-pillars-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: 28px;
   }
-
   .why-pillar {
     border-right: none;
-    padding: 0;
+    border-bottom: 1px solid var(--border-dark);
+    padding: 0 0 24px;
   }
+  .why-pillar:last-child { border-bottom: none; }
 
-  .gallery-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .gallery-intro {
-    max-width: 100%;
-  }
-
+  /* Contact */
+  .contact-section { padding: 70px 0; }
   .contact-layout {
     grid-template-columns: 1fr;
+    gap: 24px;
   }
-}
+  .contact-map-card { min-height: 280px; }
+  .map-wrapper { min-height: 260px; }
 
-@media (max-width: 768px) {
-  .nav-menu,
-  .btn-whatsapp-pill {
-    display: none;
-  }
-
-  .mobile-nav-toggle {
-    display: block;
-  }
-
-  .hero-trust-features {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .services-cards-pair {
-    grid-template-columns: 1fr;
-  }
-
-  .why-pillars-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .gallery-strip {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
+  /* Footer */
   .footer-container {
     flex-direction: column;
-    text-align: center;
+    align-items: flex-start;
+    gap: 20px;
   }
-
-  .protect-device-annotation {
-    right: 0px;
-    top: 10px;
-  }
-
-  .annotation-text {
-    font-size: 1.4rem;
-  }
-
-  .modal-grid-2 {
-    grid-template-columns: 1fr;
-  }
+  .footer-nav { flex-wrap: wrap; gap: 14px; }
 }
 
+/* ── 768px: Tablet Portrait & Large Phone ── */
+@media (max-width: 768px) {
+
+  /* Nav */
+  .nav-menu,
+  .btn-whatsapp-pill { display: none; }
+  .mobile-nav-toggle { display: block; }
+
+  /* Hero */
+  .hero-section { padding: 50px 0 60px; }
+  .hero-overline { font-size: 0.75rem; }
+  .hero-title { font-size: clamp(2rem, 7vw, 2.8rem); }
+  .hero-subtitle { font-size: 0.97rem; }
+  .hero-actions { flex-wrap: wrap; gap: 12px; }
+  .hero-trust-features {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  /* Services */
+  .services-section { padding: 60px 0; }
+  .services-cards-pair {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .service-card-image-wrap { height: 220px; }
+
+  /* Why */
+  .why-section { padding: 60px 0; }
+  .why-pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .why-header { margin-bottom: 36px; }
+
+  /* Contact */
+  .contact-section { padding: 60px 0; }
+  .contact-layout { gap: 20px; }
+  .contact-title { font-size: 1.8rem; }
+
+  /* Modal */
+  .service-modal-backdrop { padding: 16px; }
+  .service-modal-dialog {
+    padding: 24px 20px;
+    max-height: 92vh;
+  }
+  .modal-title { font-size: 1.5rem; }
+  .modal-grid-2 { grid-template-columns: 1fr; gap: 14px; }
+
+  /* Lightbox */
+  .lightbox-caption-bar {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  /* Footer */
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+  .footer-nav {
+    justify-content: center;
+    gap: 16px;
+  }
+  .footer-socials { justify-content: center; }
+}
+
+/* ── 480px: Mobile ── */
 @media (max-width: 480px) {
+
+  /* Container padding */
+  .container { padding: 0 16px; }
+
+  /* Header */
+  .site-header { height: 66px; }
+  .brand-tagline { display: none; }
+
+  /* Hero */
+  .hero-section { padding: 40px 0 52px; }
+  .hero-title { font-size: clamp(1.85rem, 8.5vw, 2.4rem); }
+  .hero-subtitle { font-size: 0.93rem; line-height: 1.6; }
   .hero-actions {
     flex-direction: column;
     width: 100%;
+    gap: 12px;
   }
-
-  .hero-actions .btn {
-    width: 100%;
-  }
-
+  .hero-actions .btn { width: 100%; justify-content: center; }
   .hero-trust-features {
-    grid-template-columns: 1fr;
-  }
-
-  .gallery-strip {
     grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding-top: 22px;
   }
+  .trust-feature-item { gap: 8px; }
+  .trust-label { font-size: 0.78rem; }
+
+  /* Services */
+  .services-section { padding: 52px 0; }
+  .services-title { font-size: clamp(1.8rem, 7vw, 2.2rem); }
+  .service-card-image-wrap { height: 190px; }
+  .service-card-body { padding: 28px 18px 20px; }
+  .service-card-body h3 { font-size: 1.2rem; }
+
+  /* Why */
+  .why-section { padding: 52px 0; }
+  .why-pillars-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .why-title { font-size: clamp(1.7rem, 6.5vw, 2.2rem); }
+  .why-pillar { padding-bottom: 18px; }
+  .pillar-icon-box { width: 40px; height: 40px; }
+  .pillar-icon-box svg { width: 18px; height: 18px; }
+  .why-pillar h4 { font-size: 0.95rem; }
+  .why-pillar p { font-size: 0.82rem; }
+
+  /* Contact */
+  .contact-section { padding: 52px 0; }
+  .contact-title { font-size: 1.6rem; }
+  .contact-map-card { min-height: 240px; }
+  .map-wrapper { min-height: 220px; }
+  .contact-hours-card { padding: 20px 16px; }
+
+  /* Modal */
+  .service-modal-dialog { padding: 20px 16px; border-radius: var(--radius-lg); }
+  .modal-title { font-size: 1.3rem; }
+  .modal-feature-card { padding: 14px; }
+  .modal-feature-card h4 { font-size: 1rem; }
+
+  /* Custom skins grid */
+  .custom-skins-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .custom-skins-title { font-size: 1.1rem; }
+
+  /* Footer */
+  .site-footer { padding: 24px 0; }
+  .footer-nav { gap: 12px; font-size: 0.82rem; }
+
+  /* Floating WhatsApp */
+  .floating-whatsapp-btn { bottom: 20px; right: 16px; width: 50px; height: 50px; }
+  .floating-whatsapp-btn svg { width: 26px; height: 26px; }
 }
+
+/* ── 360px: Small Android phones ── */
+@media (max-width: 360px) {
+  .hero-title { font-size: 1.7rem; }
+  .hero-trust-features { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .why-pillars-grid { grid-template-columns: 1fr; }
+  .custom-skins-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact-title { font-size: 1.45rem; }
+}
+
 
 /* ==========================================================================
    Custom Designer Lamination Skins Showcase (Real Work by Prakash Gadaliya)

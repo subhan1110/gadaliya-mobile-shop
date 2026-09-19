@@ -1,0 +1,8 @@
+# robots.txt for Gadaliya Mobile Visnagar
+# Website: https://gadaliya-mobile-shop.vercel.app/
+
+User-agent: *
+Allow: /
+
+# XML Sitemap Location
+Sitemap: https://gadaliya-mobile-shop.vercel.app/sitemap.xml
