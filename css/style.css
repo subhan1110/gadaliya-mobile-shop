@@ -1399,214 +1399,6 @@ button {
 }
 
 /* ==========================================================================
-   Responsive Media Queries — Comprehensive Mobile-First Overhaul
-   ========================================================================== */
-
-/* ── 1024px: Tablet Landscape ── */
-@media (max-width: 1024px) {
-
-  /* Hero */
-  .hero-section { padding: 60px 0 70px; }
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 48px;
-    text-align: left;
-  }
-  .hero-visual { display: none; }  /* hide large image on tablet/mobile - keeps layout clean */
-  .hero-content { max-width: 100%; }
-  .hero-subtitle { max-width: 100%; }
-
-  /* Services */
-  .services-section { padding: 70px 0; }
-  .services-grid {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
-  .services-intro { max-width: 100%; }
-
-  /* Why */
-  .why-section { padding: 70px 0; }
-  .why-pillars-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-  }
-  .why-pillar {
-    border-right: none;
-    border-bottom: 1px solid var(--border-dark);
-    padding: 0 0 24px;
-  }
-  .why-pillar:last-child { border-bottom: none; }
-
-  /* Contact */
-  .contact-section { padding: 70px 0; }
-  .contact-layout {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-  .contact-map-card { min-height: 280px; }
-  .map-wrapper { min-height: 260px; }
-
-  /* Footer */
-  .footer-container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-  }
-  .footer-nav { flex-wrap: wrap; gap: 14px; }
-}
-
-/* ── 768px: Tablet Portrait & Large Phone ── */
-@media (max-width: 768px) {
-
-  /* Nav */
-  .nav-menu,
-  .btn-whatsapp-pill { display: none; }
-  .mobile-nav-toggle { display: block; }
-
-  /* Hero */
-  .hero-section { padding: 50px 0 60px; }
-  .hero-overline { font-size: 0.75rem; }
-  .hero-title { font-size: clamp(2rem, 7vw, 2.8rem); }
-  .hero-subtitle { font-size: 0.97rem; }
-  .hero-actions { flex-wrap: wrap; gap: 12px; }
-  .hero-trust-features {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-  }
-
-  /* Services */
-  .services-section { padding: 60px 0; }
-  .services-cards-pair {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  .service-card-image-wrap { height: 220px; }
-
-  /* Why */
-  .why-section { padding: 60px 0; }
-  .why-pillars-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-  .why-header { margin-bottom: 36px; }
-
-  /* Contact */
-  .contact-section { padding: 60px 0; }
-  .contact-layout { gap: 20px; }
-  .contact-title { font-size: 1.8rem; }
-
-  /* Modal */
-  .service-modal-backdrop { padding: 16px; }
-  .service-modal-dialog {
-    padding: 24px 20px;
-    max-height: 92vh;
-  }
-  .modal-title { font-size: 1.5rem; }
-  .modal-grid-2 { grid-template-columns: 1fr; gap: 14px; }
-
-  /* Lightbox */
-  .lightbox-caption-bar {
-    flex-direction: column;
-    gap: 12px;
-    align-items: flex-start;
-  }
-
-  /* Footer */
-  .footer-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 20px;
-  }
-  .footer-nav {
-    justify-content: center;
-    gap: 16px;
-  }
-  .footer-socials { justify-content: center; }
-}
-
-/* ── 480px: Mobile ── */
-@media (max-width: 480px) {
-
-  /* Container padding */
-  .container { padding: 0 16px; }
-
-  /* Header */
-  .site-header { height: 66px; }
-  .brand-tagline { display: none; }
-
-  /* Hero */
-  .hero-section { padding: 40px 0 52px; }
-  .hero-title { font-size: clamp(1.85rem, 8.5vw, 2.4rem); }
-  .hero-subtitle { font-size: 0.93rem; line-height: 1.6; }
-  .hero-actions {
-    flex-direction: column;
-    width: 100%;
-    gap: 12px;
-  }
-  .hero-actions .btn { width: 100%; justify-content: center; }
-  .hero-trust-features {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    padding-top: 22px;
-  }
-  .trust-feature-item { gap: 8px; }
-  .trust-label { font-size: 0.78rem; }
-
-  /* Services */
-  .services-section { padding: 52px 0; }
-  .services-title { font-size: clamp(1.8rem, 7vw, 2.2rem); }
-  .service-card-image-wrap { height: 190px; }
-  .service-card-body { padding: 28px 18px 20px; }
-  .service-card-body h3 { font-size: 1.2rem; }
-
-  /* Why */
-  .why-section { padding: 52px 0; }
-  .why-pillars-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
-  .why-title { font-size: clamp(1.7rem, 6.5vw, 2.2rem); }
-  .why-pillar { padding-bottom: 18px; }
-  .pillar-icon-box { width: 40px; height: 40px; }
-  .pillar-icon-box svg { width: 18px; height: 18px; }
-  .why-pillar h4 { font-size: 0.95rem; }
-  .why-pillar p { font-size: 0.82rem; }
-
-  /* Contact */
-  .contact-section { padding: 52px 0; }
-  .contact-title { font-size: 1.6rem; }
-  .contact-map-card { min-height: 240px; }
-  .map-wrapper { min-height: 220px; }
-  .contact-hours-card { padding: 20px 16px; }
-
-  /* Modal */
-  .service-modal-dialog { padding: 20px 16px; border-radius: var(--radius-lg); }
-  .modal-title { font-size: 1.3rem; }
-  .modal-feature-card { padding: 14px; }
-  .modal-feature-card h4 { font-size: 1rem; }
-
-  /* Custom skins grid */
-  .custom-skins-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-  .custom-skins-title { font-size: 1.1rem; }
-
-  /* Footer */
-  .site-footer { padding: 24px 0; }
-  .footer-nav { gap: 12px; font-size: 0.82rem; }
-
-  /* Floating WhatsApp */
-  .floating-whatsapp-btn { bottom: 20px; right: 16px; width: 50px; height: 50px; }
-  .floating-whatsapp-btn svg { width: 26px; height: 26px; }
-}
-
-/* ── 360px: Small Android phones ── */
-@media (max-width: 360px) {
-  .hero-title { font-size: 1.7rem; }
-  .hero-trust-features { grid-template-columns: 1fr 1fr; gap: 10px; }
-  .why-pillars-grid { grid-template-columns: 1fr; }
-  .custom-skins-grid { grid-template-columns: repeat(2, 1fr); }
-  .contact-title { font-size: 1.45rem; }
-}
-
-
-/* ==========================================================================
    Custom Designer Lamination Skins Showcase (Real Work by Prakash Gadaliya)
    ========================================================================== */
 .custom-skins-section {
@@ -1645,9 +1437,9 @@ button {
   background: rgba(245, 166, 35, 0.12);
   border: 1px solid rgba(245, 166, 35, 0.3);
   color: var(--accent-gold);
-  padding: 4px 12px;
+  padding: 5px 14px;
   border-radius: var(--radius-pill);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -1660,21 +1452,9 @@ button {
 
 .custom-skins-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 14px;
   margin-bottom: 24px;
-}
-
-@media (max-width: 900px) {
-  .custom-skins-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 550px) {
-  .custom-skins-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 .skin-card {
@@ -1719,6 +1499,7 @@ button {
   right: 8px;
   background: rgba(0, 0, 0, 0.65);
   backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   border-radius: 50%;
   width: 28px;
   height: 28px;
@@ -1757,4 +1538,450 @@ button {
   color: var(--accent-gold);
   display: block;
 }
+
+/* ==========================================================================
+   Responsive Media Queries — Comprehensive Mobile-First Overhaul
+   ========================================================================== */
+
+/* ── 1024px: Tablet Landscape ── */
+@media (max-width: 1024px) {
+  .hero-section {
+    padding: 60px 0 70px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    text-align: left;
+  }
+
+  .hero-visual {
+    display: none;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-subtitle {
+    max-width: 100%;
+  }
+
+  .services-section {
+    padding: 70px 0;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .services-intro {
+    max-width: 100%;
+  }
+
+  .why-section {
+    padding: 70px 0;
+  }
+
+  .why-pillars-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .why-pillar {
+    border-right: none;
+    border-bottom: 1px solid var(--border-dark);
+    padding: 0 0 24px;
+  }
+
+  .why-pillar:last-child {
+    border-bottom: none;
+  }
+
+  .custom-skins-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .contact-section {
+    padding: 70px 0;
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .contact-map-card {
+    min-height: 280px;
+  }
+
+  .map-wrapper {
+    min-height: 260px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .footer-nav {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+}
+
+/* ── 768px: Tablet Portrait & Large Phone ── */
+@media (max-width: 768px) {
+  .nav-menu,
+  .btn-whatsapp-pill {
+    display: none;
+  }
+
+  .mobile-nav-toggle {
+    display: block;
+  }
+
+  .hero-section {
+    padding: 48px 0 56px;
+  }
+
+  .hero-overline {
+    font-size: 0.76rem;
+    padding: 4px 12px;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 6.8vw, 2.7rem);
+    line-height: 1.18;
+  }
+
+  .hero-subtitle {
+    font-size: 0.96rem;
+    margin-bottom: 24px;
+  }
+
+  .hero-actions {
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .hero-trust-features {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .services-section {
+    padding: 56px 0;
+  }
+
+  .services-cards-pair {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .service-card-image-wrap {
+    height: 220px;
+  }
+
+  .why-section {
+    padding: 56px 0;
+  }
+
+  .why-pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .why-header {
+    margin-bottom: 32px;
+  }
+
+  .contact-section {
+    padding: 56px 0;
+  }
+
+  .contact-layout {
+    gap: 20px;
+  }
+
+  .contact-title {
+    font-size: 1.8rem;
+  }
+
+  .service-modal-backdrop {
+    padding: 16px;
+  }
+
+  .service-modal-dialog {
+    padding: 24px 18px;
+    max-height: 92vh;
+  }
+
+  .modal-title {
+    font-size: 1.5rem;
+  }
+
+  .modal-grid-2 {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .lightbox-caption-bar {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .footer-nav {
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .footer-socials {
+    justify-content: center;
+  }
+}
+
+/* ── 550px: Standard Mobile Phones ── */
+@media (max-width: 550px) {
+  .custom-skins-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
+
+/* ── 480px: Compact Mobile ── */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .site-header {
+    height: 64px;
+  }
+
+  .brand-name {
+    font-size: 1.05rem;
+  }
+
+  .brand-tagline {
+    display: none;
+  }
+
+  .hero-section {
+    padding: 36px 0 48px;
+  }
+
+  .hero-overline {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+  }
+
+  .hero-title {
+    font-size: clamp(1.8rem, 8vw, 2.3rem);
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+
+  .hero-subtitle {
+    font-size: 0.92rem;
+    line-height: 1.55;
+    margin-bottom: 22px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 20px;
+  }
+
+  .hero-trust-features {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding-top: 20px;
+  }
+
+  .trust-feature-item {
+    gap: 8px;
+  }
+
+  .trust-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .trust-label {
+    font-size: 0.76rem;
+  }
+
+  .services-section {
+    padding: 48px 0;
+  }
+
+  .services-title {
+    font-size: clamp(1.75rem, 7vw, 2.15rem);
+  }
+
+  .service-card-image-wrap {
+    height: 185px;
+  }
+
+  .service-card-body {
+    padding: 26px 16px 18px;
+  }
+
+  .service-card-body h3 {
+    font-size: 1.2rem;
+  }
+
+  .service-card-body p {
+    font-size: 0.88rem;
+  }
+
+  .why-section {
+    padding: 48px 0;
+  }
+
+  .why-title {
+    font-size: clamp(1.65rem, 6.5vw, 2.1rem);
+  }
+
+  .why-pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .why-pillar {
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .pillar-icon-box {
+    width: 38px;
+    height: 38px;
+    margin-bottom: 12px;
+  }
+
+  .pillar-icon-box svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .why-pillar h4 {
+    font-size: 0.98rem;
+  }
+
+  .why-pillar p {
+    font-size: 0.84rem;
+  }
+
+  .contact-section {
+    padding: 48px 0;
+  }
+
+  .contact-title {
+    font-size: 1.6rem;
+  }
+
+  .contact-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+
+  .contact-map-card {
+    min-height: 240px;
+  }
+
+  .map-wrapper {
+    min-height: 220px;
+  }
+
+  .contact-hours-card {
+    padding: 20px 16px;
+  }
+
+  .service-modal-dialog {
+    padding: 20px 14px;
+    border-radius: var(--radius-lg);
+  }
+
+  .modal-title {
+    font-size: 1.3rem;
+  }
+
+  .modal-feature-card {
+    padding: 14px 12px;
+  }
+
+  .modal-feature-card h4 {
+    font-size: 0.98rem;
+  }
+
+  .custom-skins-title {
+    font-size: 1.08rem;
+  }
+
+  .site-footer {
+    padding: 24px 0;
+  }
+
+  .footer-nav {
+    gap: 12px;
+    font-size: 0.82rem;
+  }
+
+  .floating-whatsapp-btn {
+    bottom: 18px;
+    right: 14px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .floating-whatsapp-btn svg {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+/* ── 360px: Small Android Devices ── */
+@media (max-width: 360px) {
+  .hero-title {
+    font-size: 1.65rem;
+  }
+
+  .hero-overline {
+    font-size: 0.68rem;
+  }
+
+  .hero-trust-features {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .contact-title {
+    font-size: 1.4rem;
+  }
+
+  .custom-skins-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+}
+
 
